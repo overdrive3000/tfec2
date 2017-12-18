@@ -22,10 +22,10 @@ phases:
       - terraform init -no-color
       - terraform plan -no-color
       - terraform apply -no-color -auto-approve=true
-      - cat /tmp/terraform.log
 
   post_build:
     commands:
+      - cat /tmp/terraform.log
       - echo Terraform completed on `date`
 
 artifacts:
