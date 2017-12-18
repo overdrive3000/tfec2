@@ -19,10 +19,10 @@ phases:
       - export
       - echo "CREDS `curl --silent http://169.254.170.2:80$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI`"
       - cd $CODEBUILD_SRC_DIR
-      - export TF_LOG=TRACE
       - terraform init -no-color
       - terraform plan -no-color
       - terraform apply -no-color -auto-approve=true
+      - cat /tmp/terraform.log
 
   post_build:
     commands:
